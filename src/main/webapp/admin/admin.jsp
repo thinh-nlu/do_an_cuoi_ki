@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,6 +26,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/custom.css">
     <link rel="stylesheet" href="../asset/bootstrap-icons-1.11.1/bootstrap-icons.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../css/admin-style.css">
 </head>
 <body>
 <div id="container_header"></div>
@@ -33,11 +39,9 @@
     fetch("../include/header.html")
         .then(response => response.text())
         .then(data => {
-            document.getElementById("container_header").innerHTML = data
-        })
+            document.getElementById("container_header").innerHTML = data;
+        });
 </script>
-
-<!-- Start Main Top -->
 <header class="main-header">
     <!-- Start Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
@@ -47,25 +51,25 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="../index.jsp"><img src="../images/logo.png" class="logo" alt=""></a><a class="navbar-brand" href="../index.jsp"><img src="../images/logo1.png" class="logo" style="width: 200px;height: 108px" alt=""></a>
+                <a class="navbar-brand " href="../index.jsp"><img src="../images/logo1.png" class="logo " style="width: 200px;height: 108px" alt="" ></a>
             </div>
             <!-- End Header Navigation -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li class="nav-item"><a class="nav-link" href="../index.jsp">Trang Chủ</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="../index.jsp">Trang Chủ</a></li>
                     <li class="nav-item"><a class="nav-link" href="../about.jsp">Giới Thiệu</a></li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tiện ích <i class="bi bi-list "></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="cart.html">Giỏ Hàng</a></li>
-                            <li><a href="checkout.html">Thanh Toán</a></li>
-                            <li><a href="my-account.html">Tài Khoản</a></li>
+                            <li><a href="../tien_ich/cart.html">Giỏ Hàng</a></li>
+                            <li><a href="../tien_ich/checkout.html">Thanh Toán</a></li>
+                            <li><a href="../tien_ich/my-account.html">Tài Khoản</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="../gallery.jsp">Cửa Hàng</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../contact-us.jsp">Liên hệ </a></li>
+                    <li class="nav-item"><a class="nav-link" href="../contact-us.jsp">Liên Hệ</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -74,11 +78,13 @@
             <div class="attr-nav">
                 <ul>
                     <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                    <li class="side-menu"><a href="../tien_ich/cart.html">
-                        <i class="fa fa-shopping-bag"></i>
-                        <span class="badge">3</span>
-                        <p>Giỏ hàng</p>
-                    </a></li>
+                    <li class="side-menu">
+                        <a href="#">
+                            <i class="fa fa-shopping-bag"></i>
+                            <span class="badge">0</span>
+                            <p>Giỏ Hàng</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- End Atribute Navigation -->
@@ -114,117 +120,47 @@
     </nav>
     <!-- End Navigation -->
 </header>
-<!-- End Main Top -->
-
-<!-- Start Top Search -->
-<div class="top-search">
-    <div class="container">
-        <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-search"></i></span>
-            <input type="text" class="form-control" placeholder="Search">
-            <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-        </div>
-    </div>
-</div>
-<!-- End Top Search -->
-
-<div class="px-lg-5 pt-xl-5">
-    <h3 class="text-center text-dark pb-3 display-4 font-weight-normal" >Đơn hàng của bạn</h3>
-    <table class="table table-striped text-center  ">
-        <thead class="bg-dark">
-        <tr class="text-light">
-            <th>Số thứ tự</th>
-            <th>Tổng tiền</th>
-            <th>Tổng sản phẩm </th>
-            <th>Hoá đơn</th>
-            <th>Ngày</th>
-            <th>Trạng thái</th>
-            <th>Xóa đơn hàng</th>
-        </tr>
-        </thead>
-        <tbody class="bg-light text-dark">
-
-        <tr class='text-center text-dark font-weight-normal  '>
-            <td>1</td>
-            <td> 120.000đ </td>
-            <td>Bắp nữ hoàng - 250g(x1)</br>Bí đỏ-450g(x2) </td>
-
-            <td> 12093810920812 </td>
-            <td> 14/11/2023 </td>
-            <td>Đã thanh toán</td>
-            <td><a href="#" class='text-dark'><i class="bi bi-trash"></i></a></td>
-
-        </tr>
-        <tr class='text-center text-dark font-weight-normal  '>
-            <td>2</td>
-            <td>80.000đ</td>
-            <td>Bơ - 900g(x1) </br> Cà chua -500g(x2)</td>
-
-            <td> 1239123120931 </td>
-            <td> 14/10/2023 </td>
-            <td>Đã thanh toán </td>
-            <td><a href="#" class='text-dark'><i class="bi bi-trash"></i></a></td>
-
-        </tr>
-        <tr class='text-center text-dark font-weight-normal  '>
-            <td>3</td>
-            <td>96.000đ</td>
-            <td>Khế chua- 300g(x2)</br> Khổ qua bào - 300g(x1) </br> Khoai lang-1kg(x1)</td>
-
-            <td> 102938012389081</td>
-            <td> 04/07/2023 </td>
-            <td>Đã thanh toán</td>
-            <td><a href="#" class='text-dark'><i class="bi bi-trash"></i></a></td>
-
-        </tr>
-        <tr class='text-center text-dark font-weight-normal  '>
-            <td>4</td>
-            <td>23.000đ</td>
-            <td>Khoai tây -1kg(x1)</td>
-
-            <td> 1029489312389681</td>
-            <td> 14/11/2023 </td>
-            <td>Đã thanh toán</td>
-            <td><a href="#" class='text-dark'><i class="bi bi-trash"></i></a></td>
-
-        </tr>
-        <tr class='text-center text-dark font-weight-normal  '>
-            <td>5</td>
-            <td>123.000đ</td>
-            <td>Xoài- 1kg(x2)</br>  Nấm mỡ nâu-150g(x1)</td>
-
-            <td> 102931290301923</td>
-            <td> 09/11/2023 </td>
-            <td>Đã thanh toán</td>
-            <td><a href="#" class='text-dark'><i class="bi bi-trash"></i></a></td>
-
-        </tr>
-
-
-        </tbody>
-    </table>
+<div class="navbar1 navbar-expand-lg">
+    <ul class="navbar-nav mx-auto" data-in="fadeInDown" data-out="fadeOutUp">
+        <li class="nav-item">
+            <a href="insert-product.jsp" class="nav-link">Thêm sản phẩm</a>
+        </li>
+        <li class="nav-item">
+            <a href="edit_products.jsp" class="nav-link">Chỉnh sửa sản phẩm</a>
+        </li>
+        <li class="nav-item">
+            <a href="list-products.jsp" class="nav-link">Danh sách sản phẩm</a>
+        </li>
+        <li class="nav-item">
+            <a href="list-user.jsp" class="nav-link">Danh sách khách hàng</a>
+        </li>
+        <li class="nav-item">
+            <a href="list-oders.jsp" class="nav-link">Danh sách đơn hàng</a>
+        </li>
+    </ul>
 </div>
 
+<div class="content">
+    <h2>Chào mừng đến với trang quản lí</h2>
+    <p>Đây là trang chính của hệ thống quản lí. Hãy chọn chức năng phía trên để tiếp tục.</p>
+</div>
 <!-- Start Footer  -->
-<footer>
-    <div id="container_footer"></div>
-    <script>
-        fetch("../include/footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("container_footer").innerHTML = data;
-            });
-    </script>
-</footer>
+<!--<footer>-->
+<!--    <div id="container_footer"></div>-->
+<!--    <script>-->
+<!--        fetch("..include/footer.jsp")-->
+<!--            .then(response => response.text())-->
+<!--            .then(data => {-->
+<!--                document.getElementById("container_footer").innerHTML = data;-->
+<!--            });-->
+<!--    </script>-->
+<!--</footer>-->
 <!-- End Footer  -->
-
-<a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="bi-arrow-up-short"></i></a>
-
-<!-- ALL JS FILES -->
+<!-- All JS Files -->
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script src="../js/popper.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-<!-- ALL PLUGINS -->
+<!-- All Plugins -->
 <script src="../js/jquery.superslides.min.js"></script>
 <script src="../js/bootstrap-select.js"></script>
 <script src="../js/inewsticker.js"></script>
